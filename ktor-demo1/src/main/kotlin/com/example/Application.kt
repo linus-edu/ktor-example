@@ -1,15 +1,23 @@
 package com.example
 
-import io.ktor.server.engine.*
-import io.ktor.server.netty.*
 import com.example.plugins.*
+import io.ktor.server.application.*
 
-fun main() {
-    embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
+// When starting like this application.conf is read
+fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
+
+// We point this module out as a starting point in application.conf
+fun Application.module() {
         configureRouting()
         configureSockets()
         configureSerialization()
         configureTemplating()
         configureSecurity()
-    }.start(wait = true)
 }
+
+//fun main() {
+//    embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
+//        configureRouting()
+//        ...
+//    }.start(wait = true)
+//}
