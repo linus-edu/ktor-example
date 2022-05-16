@@ -1,5 +1,6 @@
 package com.example
 
+import com.example.kotlinexamples.configureCoroutineDemo
 import com.example.plugins.*
 import io.ktor.server.application.*
 
@@ -13,6 +14,8 @@ fun Application.module() {
         configureSerialization()
         configureTemplating()
         configureSecurity()
+
+        configureCoroutineDemo()
 }
 
 //fun main() {
