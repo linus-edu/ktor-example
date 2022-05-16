@@ -1,8 +1,9 @@
 package com.example
 
+import com.example.exposed.SetupDatabase
+import com.example.exposed.configureShopEndpoints
 import com.example.kotlinexamples.configureCoroutineDemo
 import com.example.kotlinexamples.configureSerializationDemo
-import com.example.pluginexample.RateLimitPlugin
 import com.example.plugins.*
 import io.ktor.server.application.*
 
@@ -13,6 +14,8 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 fun Application.module() {
         // install(RateLimitPlugin)
 
+        SetupDatabase.connectAndCreate()
+
         configureRouting()
         configureSockets()
         configureSerialization()
@@ -21,6 +24,7 @@ fun Application.module() {
 
         configureCoroutineDemo()
         configureSerializationDemo()
+        configureShopEndpoints()
 }
 
 //fun main() {
