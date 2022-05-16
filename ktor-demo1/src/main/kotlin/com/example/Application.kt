@@ -1,6 +1,7 @@
 package com.example
 
 import com.example.kotlinexamples.configureCoroutineDemo
+import com.example.kotlinexamples.configureSerializationDemo
 import com.example.pluginexample.RateLimitPlugin
 import com.example.plugins.*
 import io.ktor.server.application.*
@@ -10,7 +11,7 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
 // We point this module out as a starting point in application.conf
 fun Application.module() {
-        install(RateLimitPlugin)
+        // install(RateLimitPlugin)
 
         configureRouting()
         configureSockets()
@@ -19,6 +20,7 @@ fun Application.module() {
         configureSecurity()
 
         configureCoroutineDemo()
+        configureSerializationDemo()
 }
 
 //fun main() {
